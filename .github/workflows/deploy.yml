@@ -9,7 +9,6 @@ on:
 # Least-privilege token scoped to what Pages deployment needs.
 permissions:
   contents: read
-  administration: write
   pages: write
   id-token: write
 
@@ -56,8 +55,6 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
