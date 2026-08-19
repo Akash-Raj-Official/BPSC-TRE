@@ -29,7 +29,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: '24'
           cache: npm
 
       - name: Install dependencies
@@ -42,15 +42,16 @@ jobs:
         run: npm test
 
       - name: Build
-        # The repository name is read from the workflow context, so nothing in
-        # the source has to be edited when the repo is renamed or forked.
+        # The repository name is extracted from GITHUB_REPOSITORY so it works
+        # robustly across all events, including manual workflow_dispatch triggers.
         # A user/organisation site (<user>.github.io) is served from the domain
         # root, so it keeps the default base of "/".
         run: |
-          if [ "${{ github.event.repository.name }}" = "${{ github.repository_owner }}.github.io" ]; then
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          if [ "$REPO_NAME" = "${{ github.repository_owner }}.github.io" ]; then
             export VITE_BASE_PATH="/"
           else
-            export VITE_BASE_PATH="/${{ github.event.repository.name }}/"
+            export VITE_BASE_PATH="/$REPO_NAME/"
           fi
           echo "Building with base path: $VITE_BASE_PATH"
           npm run build
