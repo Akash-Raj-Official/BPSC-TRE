@@ -9,6 +9,7 @@ on:
 # Least-privilege token scoped to what Pages deployment needs.
 permissions:
   contents: read
+  administration: write
   pages: write
   id-token: write
 
