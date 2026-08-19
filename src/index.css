@@ -48,17 +48,17 @@
   .dark {
     color-scheme: dark;
 
-    --color-canvas: 2 6 23;
-    --color-surface: 15 23 42;
-    --color-surface-muted: 30 41 59;
-    --color-surface-raised: 30 41 59;
-    --color-line: 51 65 85;
-    --color-line-strong: 71 85 105;
+    --color-canvas: 10 10 10;
+    --color-surface: 18 18 18;
+    --color-surface-muted: 28 28 28;
+    --color-surface-raised: 34 34 34;
+    --color-line: 44 44 44;
+    --color-line-strong: 64 64 64;
 
-    --color-ink: 241 245 249;
-    --color-ink-muted: 148 163 184;
-    --color-ink-subtle: 129 140 158;
-    --color-ink-inverse: 15 23 42;
+    --color-ink: 244 244 245;
+    --color-ink-muted: 161 161 170;
+    --color-ink-subtle: 113 113 122;
+    --color-ink-inverse: 10 10 10;
 
     --color-brand: 96 165 250;
     --color-brand-soft: 30 58 138;
