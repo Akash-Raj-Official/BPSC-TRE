@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="description"
+      content="Free BPSC TRE Preliminary mock test platform with a realistic exam interface, negative marking, bilingual questions and detailed performance analysis."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>BPSC TRE Mock Test | Preliminary Examination Practice</title>
+
+    <script>
+      /*
+        Applies the saved theme before the first paint so a dark-mode user
+        never sees a white flash. Kept inline and tiny on purpose; the real
+        theme state lives in src/store/themeStore.ts.
+      */
+      (function () {
+        try {
+          var stored = localStorage.getItem('bpsc-tre-mock:v1:theme');
+          var preference = stored ? JSON.parse(stored) : 'system';
+          var dark =
+            preference === 'dark' ||
+            (preference === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (error) {
+          /* storage unavailable — fall back to the light theme */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="font-family: system-ui, sans-serif; padding: 2rem; text-align: center">
+        This mock test platform needs JavaScript to run the examination timer and scoring. Please enable JavaScript and
+        reload the page.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

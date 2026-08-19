@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BPSC TRE Mock Test">
+  <rect width="64" height="64" rx="14" fill="#1d4ed8" />
+  <path d="M32 14 6 25l26 11 21-8.9V42h4V25L32 14Z" fill="#ffffff" />
+  <path d="M16 33.5V44c0 3.9 7.2 7 16 7s16-3.1 16-7V33.5l-16 6.8-16-6.8Z" fill="#bfdbfe" />
+</svg>
