@@ -18,9 +18,9 @@ No backend, no login, no sign-up. Everything runs in the browser and is stored i
 ## Features
 
 ### Examination
-- **Three complete practice sets**, each a full 150-question paper — Paper I (30 language questions)
-  plus Paper II (120 general studies questions across all seven subjects). The sets share no
-  questions with each other.
+- **Seven complete practice sets**, each a full 150-question paper — Paper I (30 language questions)
+  plus Paper II (120 general studies questions across all seven subjects). All 1,050 questions are
+  distinct: no question appears in more than one set.
 - **Candidate name** entered before the paper starts and printed on the score card. No account
   required.
 - **Five options per question** — A, B, C, D and a generated **E — "Not Known"**.
@@ -252,15 +252,15 @@ sets.
 import type { MockTest } from '@/types/exam';
 import { buildPracticeSet } from './blueprint';
 
-const TEST_ID = 'practice-set-04';
+const TEST_ID = 'practice-set-08';
 
-export const practiceSet04: MockTest = {
+export const practiceSet08: MockTest = {
   id: TEST_ID,
-  title: { hindi: 'BPSC TRE प्रैक्टिस सेट 4', english: 'BPSC TRE Practice Set 4' },
+  title: { hindi: 'BPSC TRE प्रैक्टिस सेट 8', english: 'BPSC TRE Practice Set 8' },
   description: { hindi: '…', english: '…' },
   difficulty: 'moderate',
   demo: true,
-  questions: buildPracticeSet(TEST_ID, 3), // 0-based set index
+  questions: buildPracticeSet(TEST_ID, 7), // 0-based set index
 };
 ```
 
@@ -485,8 +485,15 @@ instructions page unless a live session exists for that test.
    and is not published in advance, so the bands are a self-assessment aid and are labelled that way.
 5. **Duration** is 120 minutes for a full 150-question set; a set that is short of the blueprint gets
    a proportionally scaled duration so the time per question stays realistic.
-6. **Practice Set 3 currently reuses no questions** — all three sets are disjoint. Future sets need
-   the banks to grow accordingly.
+6. **All seven sets are disjoint** — every bank holds exactly seven times its blueprint share
+   (1,050 questions in total), so no question is reused across sets. An eighth set needs each bank
+   grown by one more share; `npm run validate:questions` and the blueprint offsets make the
+   shortfall obvious if it is not.
+7. **The 2026 current-affairs questions are deliberately narrow.** Current affairs go stale faster
+   than a bundled question bank can track, so those items stick to scheduled or structural facts
+   (sporting hosts, constitutional timelines, commission award periods) rather than results,
+   rankings or appointments. Each carries a `source.note` telling the candidate to re-verify against
+   a current source. Treat them as pattern practice, not as a current-affairs digest.
 
 ---
 

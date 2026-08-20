@@ -4,6 +4,10 @@ import { blueprintTotal } from './blueprint';
 import { practiceSet01 } from './practiceSet01';
 import { practiceSet02 } from './practiceSet02';
 import { practiceSet03 } from './practiceSet03';
+import { practiceSet04 } from './practiceSet04';
+import { practiceSet05 } from './practiceSet05';
+import { practiceSet06 } from './practiceSet06';
+import { practiceSet07 } from './practiceSet07';
 
 /**
  * Registry of every practice set.
@@ -13,7 +17,15 @@ import { practiceSet03 } from './practiceSet03';
  * listing page and the results history all read from here, so nothing else
  * needs to change.
  */
-export const mockTests: MockTest[] = [practiceSet01, practiceSet02, practiceSet03];
+export const mockTests: MockTest[] = [
+  practiceSet01,
+  practiceSet02,
+  practiceSet03,
+  practiceSet04,
+  practiceSet05,
+  practiceSet06,
+  practiceSet07,
+];
 
 const mockTestMap = new Map(mockTests.map((test) => [test.id, test]));
 
@@ -80,4 +92,13 @@ export function getMockTestSummary(testId: string | undefined): MockTestSummary 
   return mockTestSummaries[testId];
 }
 
-export { blueprintTotal, practiceSet01, practiceSet02, practiceSet03 };
+export {
+  blueprintTotal,
+  practiceSet01,
+  practiceSet02,
+  practiceSet03,
+  practiceSet04,
+  practiceSet05,
+  practiceSet06,
+  practiceSet07,
+};
